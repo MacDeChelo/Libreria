@@ -1,1 +1,38 @@
+package libreria;
+
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
+
+public class Prestamo {
+    Libro libro;
+    Cliente cliente;
+    LocalTime fechaInicio;
+    LocalTime fechaTermino;
+    LocalTime fechaEntregaReal;
+
+    public Prestamo(Libro libro, Cliente cliente, LocalTime fechaInicio, LocalTime fechaTermino, LocalTime fechaEntregaReal) {
+        this.libro = libro;
+        this.cliente = cliente;
+        this.fechaInicio = fechaInicio;
+        this.fechaTermino = fechaTermino;
+        this.fechaEntregaReal = fechaEntregaReal;
+    }
+    public double calcularMulta(){
+        if(fechaEntregaReal.isAfter(fechaTermino)){
+            long diasRetraso = ChronoUnit.DAYS.between(fechaTermino, fechaEntregaReal);
+            return diasRetraso * 100;
+        }
+        return 0;
+    }
+      public void mostrarDatos() {
+        System.out.println("\n=== Información del Préstamo ===");
+        System.out.println("Libro prestado: " + libro.titulo);
+        System.out.println("Cliente: " + cliente.nombre);
+        System.out.println("Fecha de préstamo: " + fechaInicio);
+        System.out.println("Fecha de devolución pactada: " + fechaTermino);
+        System.out.println("Fecha de entrega real: " + fechaEntregaReal);
+        System.out.println("Multa por retraso: $" + calcularMulta());
+    }
+}
+
 
