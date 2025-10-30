@@ -1,0 +1,18 @@
+package libreria;
+
+public class Autor {
+    String nombre;
+    String profesion;
+    String descripcion;
+
+    public Autor(String nombre, String profesion, String descripcion) {
+        this.nombre = nombre;
+        this.profesion = profesion;
+        this.descripcion = descripcion;
+    }
+
+    public void mostrarDatos() {
+        System.out.println("Autor: " + nombre + " | Profesión: " + profesion + 
+                           " | Descripción: " + descripcion);
+    }
+}
