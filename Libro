@@ -1,0 +1,31 @@
+package libreria;
+
+import java.time.LocalDate;
+
+public class Libro {
+    
+    String iSBN;
+    String titulo;
+    String editorial;
+    int numeroEjemplares;
+    LocalDate fechaDePublicacion;
+    String genero;
+    Autor autor;
+
+    public Libro(String iSBN, String titulo, String editorial, int numeroEjemplares, LocalDate fechaDePublicacion, String genero, Autor autor) {
+        this.iSBN = iSBN;
+        this.titulo = titulo;
+        this.editorial = editorial;
+        this.numeroEjemplares = numeroEjemplares;
+        this.fechaDePublicacion = fechaDePublicacion;
+        this.genero = genero;
+        this.autor = autor;
+    }
+
+
+    public void mostrarDatos(){
+        System.out.println("ISBN: " + iSBN + "Titulo: " + titulo + "Editorial: " + editorial + "Numero de ejemplares: " + numeroEjemplares + 
+                "Fecha de publicacion: " + fechaDePublicacion + "Genero: " + genero );
+        autor.mostrarDatos();
+    }
+}
